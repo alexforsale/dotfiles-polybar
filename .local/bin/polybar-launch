@@ -1,0 +1,29 @@
+#!/bin/sh
+# Terminate already running bar instances
+killall -q polybar
+
+# Wait until the processes have been shut down
+while pgrep -u "$(id -u)" -x polybar >/dev/null; do sleep 1; done
+
+POLYDIR="$XDG_CONFIG_HOME"/polybar
+mkdir -p "${XDG_DATA_HOME}/polybar"
+# Launch polybar
+if [ -e "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}" ];then
+    echo "---" | tee -a "${XDG_DATA_HOME}"/polybar_main.log
+    polybar topleft -c "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}" 2>&1 |
+        tee -a "${XDG_DATA_HOME}/polybar"/polybar_topleft.log &
+    polybar top -c "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}" 2>&1 |
+        tee -a "${XDG_DATA_HOME}/polybar"/polybar_top.log &
+    polybar topright -c "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}" 2>&1 |
+        tee -a "${XDG_DATA_HOME}/polybar"/polybar_topright.log &
+elif [ -e "$POLYDIR"/config ];then
+    echo "---" | tee -a ${XDG_DATA_HOME}/polybar_main.log
+    polybar main -c "$POLYBAR"/config 2>&1 |
+        tee -a "${XDG_DATA_HOME}/polybar"/polybar_main.log &
+fi
+
+if [ -n "${POLYBAR_MONITOR1}" ]; then
+    echo "---" | tee -a ${XDG_DATA_HOME}/polybar_second.log
+    polybar second -c "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}_${POLYBAR_MONITOR1}" 2>&1 |
+        tee -a "${XDG_DATA_HOME}/polybar"/polybar_second.log &
+fi
