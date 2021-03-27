@@ -45,10 +45,10 @@ throttle-output-for = 10
 screenchange-reload = true
 
 ; Define fallback values used by all module formats
-;format-foreground = ${xrdb.color10}
-format-background = ${colors.color0}
-;format-underline =
-;format-overline =
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-underline = ${colors.color14}
+format-overline = ${colors.color10}
 ;format-spacing =
 ;format-padding =
 ;format-margin =
@@ -57,8 +57,8 @@ format-background = ${colors.color0}
 pseudo-transparency = false
 
 [bar/preset]
-radius-top = 10
-radius-bottom = 10
+;radius-top = 10
+;radius-bottom = 10
 
 height = 4.5%
 offset-y = 0%
@@ -70,52 +70,21 @@ font-1 = "Material Icons:size=8;1"
 font-2 = "siji:pixelsize=10;2"
 font-3 = "fontawesome:size=15;3"
 font-4 = "Symbols Nerd Font:size=13;3"
-background-0 = ${colors.color0}
-background-1 = #99000000
-background-2 = #88000000
-background-3 = #66000000
-background-4 = ${colors.color0}
+
+;background-1 = #99000000
+;background-2 = #88000000
+;background-3 = #66000000
+;background-4 = ${colors.color0}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
 module-margin = 1
 
-[bar/topleft]
-inherit = bar/preset
-
-width = 15%
-padding-left = 0
-padding-right = 3
-
-fixed-center = false
-
-modules-left = menu editor browser mail terminal fileman
-module-margin = 0
-
-;foreground = ${xrdb.color15}
-
-[bar/top]
-inherit = bar/preset
-width = 25%
-
-offset-x = 30%
-
-modules-center = xwindow
-
-[bar/topright]
-inherit = bar/preset
-
-width = 35%
-
-padding-right = 0
-
-offset-x = 65%
-
-fixed-center = true
-
-modules-right = eth wlan date pulseaudio powermenu
-module-margin= 1
+dim-value = 1.0
 
 tray-position = right
 tray-offset-x = 0
@@ -124,9 +93,26 @@ tray-scale = 1
 tray-padding = 1
 tray-detached = false
 
-tray-background = ${root.background-2}
+;tray-background = ${colors.background}
 
-;tray-background = ${root.background}
+;wm-restack = bspwm
+;override-redirect = true
+
+[bar/main]
+inherit = bar/preset
+
+;width = 15%
+padding-left = 0
+padding-right = 3
+
+fixed-center = false
+
+modules-left = menu editor browser mail terminal fileman
+modules-center = ewmh xwindow
+module-margin = 0
+modules-right = eth wlan date pulseaudio powermenu
+
+;foreground = ${xrdb.color15}
 
 [module/menu]
 type = custom/text
@@ -134,7 +120,7 @@ content = 
 ;alt-content = 
 content-padding = 2
 ;content-background = ${colors.background-alt}
-;content-foreground = ${colors.foreground}
+content-foreground = ${colors.color1}
 click-left = polybar-menu
 click-right = polybar-menu_full
 
@@ -144,7 +130,7 @@ content = 
 ;alt-content = 
 content-padding = 2
 ;content-background = ${colors.background-alt}
-;content-foreground = ${colors.foreground}
+content-foreground = ${colors.color2}
 click-left = rofi-logout
 
 [module/editor]
@@ -153,7 +139,7 @@ content = 
 ;alt-content = 
 content-padding = 1
 ;content-background = ${colors.background-alt}
-;content-foreground = ${colors.foreground}
+content-foreground = ${colors.color3}
 click-left = ${env:VISUAL}
 click-right = ${env:ALTERNATE_EDITOR:leafpad}
 
@@ -163,7 +149,7 @@ content = 
 ;alt-content = 
 content-padding = 1
 ;content-background = ${colors.background-alt}
-;content-foreground = ${colors.foreground}
+content-foreground = ${colors.color3}
 click-left = ${env:BROWSER:firefox}
 click-right = ${env:ALTERNATE_BROWSER:google-chrome-stable}
 
@@ -173,7 +159,7 @@ content = 
 ;alt-content = 
 content-padding = 1
 ;content-background = ${colors.background-alt}
-;content-foreground = ${colors.foreground}
+content-foreground = ${colors.color3}
 click-left = ${env:MAIL_APP:thunderbird}
 
 [module/terminal]
@@ -182,7 +168,7 @@ content = 
 ;alt-content = 
 content-padding = 1
 ;content-background = ${colors.background-alt}
-;content-foreground = ${colors.foreground}
+content-foreground = ${colors.color3}
 click-left = ${env:TERMINAL:xterm}
 
 [module/fileman]
@@ -191,12 +177,13 @@ content = 
 ;alt-content = 
 content-padding = 1
 ;content-background = ${colors.background-alt}
-;content-foreground = ${colors.foreground}
+content-foreground = ${colors.color3}
 click-left = ${env:FILE:pcmanfm}
 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+format-foreground = ${colors.color4}
 
 [module/date]
 type = internal/date
@@ -209,10 +196,13 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
-;format-prefix-foreground = ${colors.foreground-alt}
-;format-underline = #0a6cf5
+format-foreground = ${colors.color5}
+format-prefix-foreground = ${colors.color5}
+format-underline = ${colors.color5}
 
 label = %date% %time%
+label-foreground = ${colors.color5}
+label-padding-right = 1
 
 [module/eth]
 type = internal/network
@@ -220,9 +210,9 @@ interface = ${env:POLYBAR_ETH:extern0}
 interval = 3.0
 accumulate-stats = true
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.color6}
 format-connected-prefix = " "
-;format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected-prefix-foreground = ${colors.color7}
 ;label-connected = %local_ip%
 label-connected = %local_ip% %upspeed:9% %downspeed:9%
 
@@ -237,8 +227,10 @@ interface = ${env:POLYBAR_WLAN:wlan0}
 interval = 3.0
 
 format-connected = <label-connected>
-;format-connected-foreground = ${colors.colors3}
+format-connected-foreground = ${colors.colors8}
 label-connected =  %essid% %upspeed:6% - %downspeed:6%
+label-connected-padding-right = 1
+label-connected-foreground = ${colors.color8}
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -251,7 +243,7 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-;ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-foreground = ${colors.color9}
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -259,10 +251,74 @@ type = internal/pulseaudio
 use-ui-max = true
 interval = 1
 format-volume = <ramp-volume> <label-volume>
+format-volume-foreground = ${colors.color10}
 label-muted = : muted
-;label-muted-foreground: #666
+label-muted-foreground = ${colors.color11}
 click-right = pavucontrol
 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
+ramp-volume-foreground = ${colors.color10}
+
+[module/ewmh]
+type = internal/xworkspaces
+pin-workspaces = false
+enable-click = false
+enable-scroll = true
+
+icon-0 = Terminal;
+icon-1 = Codeditor;
+icon-2 = Web;
+icon-3 = Multimedia;
+icon-default = 
+
+; Available tags:
+;   <label-monitor>
+;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
+; Default: <label-state>
+format = <label-state>
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-monitor = %name%
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon% %name%
+label-active = %icon% %name%
+label-active-foreground = ${colors.color11}
+;label-active-background = #3f3f3f
+label-active-underline = ${colors.color12}
+label-active-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon% %name%
+label-occupied = %icon%
+label-occupied-underline = ${colors.color12}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon% %name%
+label-urgent = %icon%
+label-urgent-foreground = ${colors.color11}
+;label-urgent-background = #bd2c40
+label-urgent-underline = ${colors.color12}
+label-urgent-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon% %name%
+label-empty = %icon%
+label-empty-foreground = ${colors.color11}
+label-empty-padding = 2

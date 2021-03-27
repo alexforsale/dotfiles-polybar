@@ -10,12 +10,8 @@ mkdir -p "${XDG_DATA_HOME}/polybar"
 # Launch polybar
 if [ -e "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}" ];then
     echo "---" | tee -a "${XDG_DATA_HOME}"/polybar_main.log
-    polybar topleft -c "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}" 2>&1 |
-        tee -a "${XDG_DATA_HOME}/polybar"/polybar_topleft.log &
-    polybar top -c "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}" 2>&1 |
-        tee -a "${XDG_DATA_HOME}/polybar"/polybar_top.log &
-    polybar topright -c "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}" 2>&1 |
-        tee -a "${XDG_DATA_HOME}/polybar"/polybar_topright.log &
+    polybar main -c "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}" 2>&1 |
+        tee -a "${XDG_DATA_HOME}/polybar"/polybar_main.log &
 elif [ -e "$POLYDIR"/config ];then
     echo "---" | tee -a ${XDG_DATA_HOME}/polybar_main.log
     polybar main -c "$POLYBAR"/config 2>&1 |
