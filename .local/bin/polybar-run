@@ -1,0 +1,36 @@
+#!/bin/sh
+
+case ${_WM} in
+    i3)
+        # i3 set polybar top
+        rofi -no-lazy-grab -show run \
+            -hide-scrollbar true \
+            -bw 0 \
+            -lines 20 \
+            -line-padding 10 \
+            -padding 20 \
+            -width 30 \
+            -xoffset 0 -yoffset 30 \
+            -location 0 \
+            -columns 2 \
+            -show-icons -icon-theme "Papirus" \
+            -font "Fantasque Sans Mono 10" \
+            -color-enabled true
+    ;;
+    openbox)
+        # Launch Rofi
+        rofi -no-lazy-grab -show run \
+            -hide-scrollbar true \
+            -bw 0 \
+            -lines 5 \
+            -line-padding 10 \
+            -padding 20 \
+            -width 30 \
+            -xoffset 0 -yoffset 30 \
+            -location 0 \
+            -columns 2 \
+            -show-icons -icon-theme "Papirus" \
+            -font "Fantasque Sans Mono 10" \
+            -color-enabled true
+        ;;
+esac

@@ -50,7 +50,7 @@ format-background = ${colors.background}
 format-underline = ${colors.color14}
 format-overline = ${colors.color10}
 ;format-spacing =
-;format-padding =
+format-padding = 1
 ;format-margin =
 ;format-offset =
 
@@ -107,8 +107,8 @@ padding-right = 3
 
 fixed-center = false
 
-modules-left = menu editor browser mail terminal fileman
-modules-center = ewmh xwindow
+modules-left = menu editor browser mail terminal fileman ewmh
+modules-center = xwindow
 module-margin = 0
 modules-right = eth wlan date pulseaudio powermenu
 
@@ -227,7 +227,7 @@ interface = ${env:POLYBAR_WLAN:wlan0}
 interval = 3.0
 
 format-connected = <label-connected>
-format-connected-foreground = ${colors.colors8}
+format-connected-foreground = ${colors.color8}
 label-connected =  %essid% %upspeed:6% - %downspeed:6%
 label-connected-padding-right = 1
 label-connected-foreground = ${colors.color8}
@@ -263,16 +263,18 @@ ramp-volume-foreground = ${colors.color10}
 
 [module/ewmh]
 type = internal/xworkspaces
-pin-workspaces = false
-enable-click = false
+pin-workspaces = true
+enable-click = true
 enable-scroll = true
 
-icon-0 = Terminal;
-icon-1 = Codeditor;
-icon-2 = Web;
-icon-3 = Multimedia;
+icon-0 = Terminal; 
+icon-1 = Codeditor; 
+icon-2 = Web; 
+icon-3 = Mail; 
+icon-4 = Multimedia; 
+icon-5 = Others; 
 icon-default = 
-
+icon-foreground = ${colors.color11}
 ; Available tags:
 ;   <label-monitor>
 ;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
@@ -289,11 +291,11 @@ label-monitor = %name%
 ;   %icon%
 ;   %index%
 ; Default: %icon% %name%
-label-active = %icon% %name%
+label-active =  %icon% %name% 
 label-active-foreground = ${colors.color11}
 ;label-active-background = #3f3f3f
 label-active-underline = ${colors.color12}
-label-active-padding = 4
+label-active-padding = 2
 
 ; Available tokens:
 ;   %name%
@@ -320,5 +322,5 @@ label-urgent-padding = 4
 ;   %index%
 ; Default: %icon% %name%
 label-empty = %icon%
-label-empty-foreground = ${colors.color11}
+label-empty-foreground = ${colors.color12}
 label-empty-padding = 2
