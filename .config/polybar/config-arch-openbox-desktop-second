@@ -1,0 +1,326 @@
+;-*-mode: conf -*-
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+[colors]
+color0 = ${xrdb:color0}
+color1 = ${xrdb:color1}
+color2 = ${xrdb:color2}
+color3 = ${xrdb:color3}
+color4 = ${xrdb:color4}
+color5 = ${xrdb:color5}
+color6 = ${xrdb:color6}
+color7 = ${xrdb:color7}
+color8 = ${xrdb:color8}
+color9 = ${xrdb:color9}
+color10 = ${xrdb:color10}
+color11 = ${xrdb:color11}
+color12 = ${xrdb:color12}
+color13 = ${xrdb:color13}
+color14 = ${xrdb:color14}
+color15 = ${xrdb:color15}
+
+foreground = ${xrdb:foreground}
+background = ${xrdb:background}
+
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+
+; Reload upon receiving XCB_RANDR_SCREEN_CHANGE_NOTIFY events
+screenchange-reload = true
+
+; Define fallback values used by all module formats
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-underline = ${colors.color14}
+format-overline = ${colors.color10}
+;format-spacing =
+format-padding = 1
+;format-margin =
+;format-offset =
+
+pseudo-transparency = false
+
+[bar/preset]
+;radius-top = 10
+;radius-bottom = 10
+
+height = 4.5%
+offset-y = 0%
+
+monitor = ${env:POLYBAR_MONITOR1:VGA-1}
+
+font-0 = "Fantasque Sans Mono:size=9;1"
+font-1 = "Material Icons:size=8;1"
+font-2 = "siji:pixelsize=10;2"
+font-3 = "fontawesome:size=15;3"
+font-4 = "Symbols Nerd Font:size=13;3"
+
+;background-1 = #99000000
+;background-2 = #88000000
+;background-3 = #66000000
+;background-4 = ${colors.color0}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+module-margin = 1
+
+dim-value = 1.0
+
+tray-position = right
+tray-offset-x = 0
+tray-offset-y = 0.9
+tray-scale = 1
+tray-padding = 1
+tray-detached = false
+
+;tray-background = ${colors.background}
+
+;wm-restack = bspwm
+;override-redirect = true
+
+[bar/second]
+inherit = bar/preset
+
+;width = 15%
+padding-left = 0
+padding-right = 3
+
+fixed-center = false
+
+modules-left = menu editor browser mail terminal fileman ewmh
+modules-center = xwindow
+module-margin = 0
+modules-right = eth wlan date pulseaudio powermenu
+
+;foreground = ${xrdb.color15}
+
+[module/menu]
+type = custom/text
+content = 
+;alt-content = 
+content-padding = 2
+;content-background = ${colors.background-alt}
+content-foreground = ${colors.color1}
+click-left = polybar-menu
+click-right = polybar-menu_full
+
+[module/powermenu]
+type = custom/text
+content = 
+;alt-content = 
+content-padding = 2
+;content-background = ${colors.background-alt}
+content-foreground = ${colors.color2}
+click-left = rofi-logout
+
+[module/editor]
+type = custom/text
+content = 
+;alt-content = 
+content-padding = 1
+;content-background = ${colors.background-alt}
+content-foreground = ${colors.color3}
+click-left = ${env:VISUAL}
+click-right = ${env:ALTERNATE_EDITOR:leafpad}
+
+[module/browser]
+type = custom/text
+content = 
+;alt-content = 
+content-padding = 1
+;content-background = ${colors.background-alt}
+content-foreground = ${colors.color3}
+click-left = ${env:BROWSER:firefox}
+click-right = ${env:ALTERNATE_BROWSER:google-chrome-stable}
+
+[module/mail]
+type = custom/text
+content = 
+;alt-content = 
+content-padding = 1
+;content-background = ${colors.background-alt}
+content-foreground = ${colors.color3}
+click-left = ${env:MAIL_APP:thunderbird}
+
+[module/terminal]
+type = custom/text
+content = 
+;alt-content = 
+content-padding = 1
+;content-background = ${colors.background-alt}
+content-foreground = ${colors.color3}
+click-left = ${env:TERMINAL:xterm}
+
+[module/fileman]
+type = custom/text
+content = 
+;alt-content = 
+content-padding = 1
+;content-background = ${colors.background-alt}
+content-foreground = ${colors.color3}
+click-left = ${env:FILE:pcmanfm}
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+format-foreground = ${colors.color4}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date =
+date-alt = "%Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = 
+format-foreground = ${colors.color5}
+format-prefix-foreground = ${colors.color5}
+format-underline = ${colors.color5}
+
+label = %date% %time%
+label-foreground = ${colors.color5}
+label-padding-right = 1
+
+[module/eth]
+type = internal/network
+interface = ${env:POLYBAR_ETH:extern0}
+interval = 3.0
+accumulate-stats = true
+
+format-connected-underline = ${colors.color6}
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.color7}
+;label-connected = %local_ip%
+label-connected = %local_ip% %upspeed:9% %downspeed:9%
+
+format-disconnected =
+;format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/wlan]
+type = internal/network
+interface = ${env:POLYBAR_WLAN:wlan0}
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-foreground = ${colors.color8}
+label-connected =  %essid% %upspeed:6% - %downspeed:6%
+label-connected-padding-right = 1
+label-connected-foreground = ${colors.color8}
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.color9}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+;sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = true
+interval = 1
+format-volume = <ramp-volume> <label-volume>
+format-volume-foreground = ${colors.color10}
+label-muted = : muted
+label-muted-foreground = ${colors.color11}
+click-right = pavucontrol
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-foreground = ${colors.color10}
+
+[module/ewmh]
+type = internal/xworkspaces
+pin-workspaces = true
+enable-click = true
+enable-scroll = true
+
+icon-0 = Terminal; 
+icon-1 = Codeditor; 
+icon-2 = Web; 
+icon-3 = Mail; 
+icon-4 = Multimedia; 
+icon-5 = Others; 
+icon-default = 
+icon-foreground = ${colors.color11}
+; Available tags:
+;   <label-monitor>
+;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
+; Default: <label-state>
+format = <label-state>
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-monitor = %name%
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon% %name%
+label-active =  %icon% %name% 
+label-active-foreground = ${colors.color11}
+;label-active-background = #3f3f3f
+label-active-underline = ${colors.color12}
+label-active-padding = 2
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon% %name%
+label-occupied = %icon%
+label-occupied-underline = ${colors.color12}
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon% %name%
+label-urgent = %icon%
+label-urgent-foreground = ${colors.color11}
+;label-urgent-background = #bd2c40
+label-urgent-underline = ${colors.color12}
+label-urgent-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon% %name%
+label-empty = %icon%
+label-empty-foreground = ${colors.color12}
+label-empty-padding = 2
