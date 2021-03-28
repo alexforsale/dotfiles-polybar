@@ -20,6 +20,6 @@ fi
 
 if [ -n "${POLYBAR_MONITOR1}" ]; then
     echo "---" | tee -a ${XDG_DATA_HOME}/polybar_second.log
-    polybar second -c "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}_${POLYBAR_MONITOR1}" 2>&1 |
+    polybar second -c "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}-second" 2>&1 |
         tee -a "${XDG_DATA_HOME}/polybar"/polybar_second.log &
 fi
