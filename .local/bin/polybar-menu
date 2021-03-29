@@ -11,7 +11,7 @@ case ${_WM} in
             -line-padding 10 \
             -padding 20 \
             -width 30 \
-            -xoffset 0 -yoffset 30 \
+            -xoffset 0 -yoffset 142 \
             -location 8 \
             -columns 2 \
             -show-icons -icon-theme "Papirus" \
