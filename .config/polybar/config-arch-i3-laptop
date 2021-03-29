@@ -97,7 +97,7 @@ tray-detached = false
 
 ;tray-background = ${colors.background}
 
-;wm-restack = bspwm
+wm-restack = i3
 ;override-redirect = true
 
 [bar/main]
