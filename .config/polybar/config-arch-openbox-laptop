@@ -216,7 +216,7 @@ format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.color10}
 format-connected-foreground = ${colors.color10}
 ;label-connected = %local_ip%
-label-connected = %local_ip% %upspeed:9% %downspeed:9%
+label-connected = %local_ip% %upspeed:5% %downspeed:5%
 label-connected-foreground = ${colors.color10}
 
 format-disconnected =
@@ -231,7 +231,7 @@ interval = 3.0
 
 format-connected = <label-connected>
 format-connected-foreground = ${colors.color10}
-label-connected =  %essid% %upspeed:6% - %downspeed:6%
+label-connected =  %essid%  %upspeed:6%  %downspeed:6%
 label-connected-padding-right = 1
 label-connected-foreground = ${colors.color10}
 
