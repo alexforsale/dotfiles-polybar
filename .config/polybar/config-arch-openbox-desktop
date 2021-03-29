@@ -205,7 +205,7 @@ accumulate-stats = true
 
 format-connected = <label-connected>
 format-connected-underline = ${colors.color11}
-format-connected-prefix = " "
+format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.color10}
 format-connected-foreground = ${colors.color10}
 ;label-connected = %local_ip%
