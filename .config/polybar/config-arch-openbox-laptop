@@ -326,8 +326,8 @@ label-empty-foreground = ${colors.color12}
 label-empty-padding = 2
 
 [module/backlight]
-type = internal/backlight
-card = intel_backlight
+type = internal/xbacklight
+output = ${root.monitor}
 enable-scroll = true
 format = <label>
 label =  %percentage%%
