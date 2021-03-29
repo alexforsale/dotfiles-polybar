@@ -252,6 +252,7 @@ use-ui-max = true
 interval = 1
 format-volume = <ramp-volume> <label-volume>
 format-volume-foreground = ${colors.color10}
+label-volume-foreground = ${colors.color10}
 label-muted = : muted
 label-muted-foreground = ${colors.color11}
 click-right = pavucontrol
