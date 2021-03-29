@@ -63,7 +63,7 @@ pseudo-transparency = false
 height = 4.5%
 offset-y = 0%
 
-monitor = ${env:POLYBAR_MONITOR:VGA-0}
+monitor = ${env:MONITOR1:VGA-0}
 
 font-0 = "Fantasque Sans Mono:size=9;1"
 font-1 = "Material Icons:size=8;1"

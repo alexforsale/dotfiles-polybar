@@ -18,7 +18,7 @@ elif [ -e "$POLYDIR"/config ];then
         tee -a "${XDG_DATA_HOME}/polybar"/polybar_main.log &
 fi
 
-if [ -n "${POLYBAR_MONITOR1}" ]; then
+if [ -n "${MONITOR2}" ]; then
     echo "---" | tee -a ${XDG_DATA_HOME}/polybar_second.log
     polybar second -c "$POLYDIR/config-${DISTRO}-${_WM}-${POLYBAR_CONFIG}-second" 2>&1 |
         tee -a "${XDG_DATA_HOME}/polybar"/polybar_second.log &
