@@ -278,7 +278,11 @@ icon-1 = Codeditor; 
 icon-2 = Web; 
 icon-3 = Mail; 
 icon-4 = Multimedia; 
-icon-5 = Others; 
+icon-5 = Networks; 
+icon-6 = Messaging; 切
+icon-7 = VM; 力
+icon-8 = Games; 戮
+icon-9 = Others; 
 icon-default = 
 icon-foreground = ${colors.color11}
 ; Available tags:
