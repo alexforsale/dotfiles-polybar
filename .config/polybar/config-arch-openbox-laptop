@@ -210,11 +210,14 @@ interface = ${env:POLYBAR_ETH:extern0}
 interval = 3.0
 accumulate-stats = true
 
-format-connected-underline = ${colors.color6}
+format-connected = <label-connected>
+format-connected-underline = ${colors.color11}
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.color7}
+format-connected-prefix-foreground = ${colors.color10}
+format-connected-foreground = ${colors.color10}
 ;label-connected = %local_ip%
 label-connected = %local_ip% %upspeed:9% %downspeed:9%
+label-connected-foreground = ${colors.color10}
 
 format-disconnected =
 ;format-disconnected-underline = ${self.format-connected-underline}
