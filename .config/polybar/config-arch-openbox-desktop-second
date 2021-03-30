@@ -110,7 +110,7 @@ fixed-center = false
 modules-left = menu editor browser mail terminal fileman ewmh
 modules-center = xwindow
 module-margin = 0
-modules-right = cpu-fanspeed cpu-coretemp
+modules-right = cpu-fanspeed cpu-coretemp date
 
 ;foreground = ${xrdb.color15}
 
@@ -200,3 +200,22 @@ interval = 10
 format = <label>
 format-foreground = ${colors.color10}
 label = %output%
+
+[module/date]
+type = internal/date
+interval = 1
+
+date =
+date-alt = "%Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = 
+format-foreground = ${colors.color10}
+format-prefix-foreground = ${colors.color10}
+format-underline = ${colors.color10}
+
+label = %date% %time%
+label-foreground = ${colors.color10}
+label-padding-right = 1
