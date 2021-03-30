@@ -63,7 +63,7 @@ pseudo-transparency = false
 height = 4.5%
 offset-y = 0%
 
-monitor = ${env:MONITOR1:VGA-0}
+monitor = ${env:MONITOR2:VGA-1}
 
 bottom = true
 
