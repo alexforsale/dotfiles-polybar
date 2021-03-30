@@ -100,7 +100,7 @@ tray-detached = false
 wm-restack = i3
 ;override-redirect = true
 
-[bar/main]
+[bar/second]
 inherit = bar/preset
 
 ;width = 15%
