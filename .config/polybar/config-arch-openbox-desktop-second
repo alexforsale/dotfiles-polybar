@@ -266,6 +266,7 @@ label-active-padding = 2
 ; Default: %icon% %name%
 label-occupied = %icon%
 label-occupied-underline = ${colors.color12}
+label-occupied-foreground = ${colors.color12}
 
 ; Available tokens:
 ;   %name%
