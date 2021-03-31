@@ -284,53 +284,25 @@ icon-7 = VM; 力
 icon-8 = Games; 戮
 icon-9 = Others; 
 icon-default = 
-; Available tags:
-;   <label-monitor>
-;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
-; Default: <label-state>
+
 format = <label-state>
 
-; Available tokens:
-;   %name%
-; Default: %name%
 label-monitor = %name%
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon% %name%
 label-active =  %icon% %name% 
 label-active-foreground = ${colors.color11}
-;label-active-background = #3f3f3f
 label-active-underline = ${colors.color12}
 label-active-padding = 2
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon% %name%
 label-occupied = %icon%
 label-occupied-underline = ${colors.color12}
 label-occupied-foreground = ${colors.color12}
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon% %name%
 label-urgent = %icon%
 label-urgent-foreground = ${colors.color11}
-;label-urgent-background = #bd2c40
 label-urgent-underline = ${colors.color12}
 label-urgent-padding = 4
 
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon% %name%
 label-empty = %icon%
 label-empty-foreground = ${colors.color12}
 label-empty-padding = 2
