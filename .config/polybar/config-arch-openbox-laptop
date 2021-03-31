@@ -282,7 +282,6 @@ icon-7 = VM; 力
 icon-8 = Games; 戮
 icon-9 = Others; 
 icon-default = 
-icon-foreground = ${colors.color11}
 ; Available tags:
 ;   <label-monitor>
 ;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
