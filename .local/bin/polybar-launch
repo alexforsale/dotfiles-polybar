@@ -1,5 +1,6 @@
 #!/bin/sh
 # Terminate already running bar instances
+set -x
 killall -q polybar
 
 # Wait until the processes have been shut down
